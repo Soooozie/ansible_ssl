@@ -1,0 +1,9 @@
+---
+- name: install varnish dependencies
+  yum: name=epel-release
+
+- name: install varnish with yum
+  yum: name=varnish state=installed
+
+- name: start varnish
+  service: name=varnish state=started enabled=yes 
