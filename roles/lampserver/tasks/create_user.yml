@@ -1,0 +1,14 @@
+---
+- name: Create backup user
+  user: name=backups password={{ password }} shell=/bin/bash home=/home/backups
+
+- name: create backup user mysql creds
+  mysql_user: name=backups host=localhost password="{{ randpassbackups.stdout }}" priv="{{ database }}.*:SELECT,LOCK TABLES" state=present
+
+- name: template for backups my.cnf file
+  template:
+    src: roles/lampserver/templates/my.backupscnf.j2
+    dest: /home/backups/.my.cnf
+    owner: backups
+    group: root
+    mode: 0600

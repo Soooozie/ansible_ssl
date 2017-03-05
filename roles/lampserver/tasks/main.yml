@@ -1,0 +1,7 @@
+---
+- include: lamp_packages.yml
+- include: generate_rand_pass_mysql_users.yml
+- include: mysql_secure_installation.yml
+- include: wp_cli_installation.yml
+- include: create_user.yml
+- include: wordpress_mysql_db.yml 
