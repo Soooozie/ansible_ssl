@@ -1,0 +1,6 @@
+---
+- name: allow varnish to listen on desired port
+  shell: semanage port -m -t varnishd_port_t -p tcp {{ varnish_port }}
+
+- name: allow nginx to communicate with varnish on desired port
+  shell: setsebool -P httpd_can_network_connect 1

@@ -1,0 +1,7 @@
+---
+- include: nginx.yml
+- include: certbot.yml
+- include: ssl_cert_gen.yml
+- include: semanage_ports.yml
+- include: varnish_port_nginx.yml
+- include: move_nginx_files.yml 

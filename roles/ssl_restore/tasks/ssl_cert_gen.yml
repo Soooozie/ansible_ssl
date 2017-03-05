@@ -1,0 +1,7 @@
+---
+- stat: path=/etc/letsencrypt
+  register: letsencrypt
+
+- name: generate certificate
+  shell: certbot certonly --non-interactive --agree-tos --email {{ email }} -d {{ certbot_role_website }} --webroot -w {{ docroot }} --staging
+  when: not letsencrypt.stat.exists
