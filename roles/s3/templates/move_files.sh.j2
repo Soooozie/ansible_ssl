@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source ~/vars.sh
+
+cp -rf $BACKUP_FROM_BUCKET_DOCROOT /var/www/
+cp -rf $BACKUP_FROM_BUCKET_DB_CONFIG_1 /etc/
+cp -rf $BACKUP_FROM_BUCKET_DB_CONFIG_2 /etc/
+cp -rf $BACKUP_FROM_BUCKET_WSC_1 /etc/httpd/
+cp -rf $BACKUP_FROM_BUCKET_WSC_2 /etc/httpd/
+cp -rf $BACKUP_FROM_BUCKET_WSC_3 /etc/httpd/
+cp -rf $BACKUP_FROM_BUCKET_VARNISH /etc/
+
+rm -rf *.tar
+rm -rf *.tgz
+rm -rf *.tar.gz
+rm -rf *.sql

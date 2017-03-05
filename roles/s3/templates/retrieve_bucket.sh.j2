@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source ~/vars.sh
+
+s3cmd get $BUCKET_NAME/*.tar
+
+tar xf *.tar
+
+tar zxf *.tgz
+
+gunzip *.sql.gz
