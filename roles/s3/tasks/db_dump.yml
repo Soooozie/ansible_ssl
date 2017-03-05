@@ -1,0 +1,10 @@
+---
+- stat: path=/home/centos/db_backup.sql
+  register: dump
+
+- name: restore database
+  mysql_db:
+    state: import
+    name: "{{ database }}"
+    target: /home/centos/db_backup.sql
+  when: dump.stat.exists

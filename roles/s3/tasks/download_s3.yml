@@ -1,0 +1,22 @@
+---
+- unarchive: src=https://github.com/s3tools/s3cmd/archive/v1.6.1.tar.gz dest=/opt remote_src=yes
+
+- stat: path=/opt/S3
+  register: S3
+
+- name: Copy S3 to opt
+  command: cp -r /opt/s3cmd-1.6.1/S3  /opt
+  when: not S3.stat.exists
+
+- stat: path=/opt/s3cmd
+  register: s3cmd
+
+- name: Copy s3cmd to opt
+  command: cp -r /opt/s3cmd-1.6.1/s3cmd /opt
+  when: not s3cmd.stat.exists
+
+- name: create symlink S3
+  file: src=/opt/S3 dest=/usr/bin/S3 state=link force=true
+
+- name: create symlink s3cmd
+  file: src=/opt/s3cmd dest=/usr/bin/s3cmd state=link force=true

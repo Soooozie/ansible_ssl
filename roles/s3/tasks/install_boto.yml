@@ -1,0 +1,9 @@
+---
+- name: Install package
+  yum: name=epel-release
+
+- name: Install pip
+  yum: name=python-pip
+
+- name: Install boto with python-pip
+  pip: name=boto

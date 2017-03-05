@@ -1,0 +1,11 @@
+---
+- include: install_boto.yml
+- include: download_s3.yml
+- include: setup_backup_script.yml
+- include: s3_retrieving_bucket.yml
+- include: db_dump.yml
+- include: run_move_files_script.yml
+- include: cron_backups_job.yml
+- include: set_file_attributes.yml
+- include: replace_line_varnish_port.yml
+- include: restarts.yml

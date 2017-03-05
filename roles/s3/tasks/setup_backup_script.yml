@@ -1,0 +1,48 @@
+---
+- name: copy s3cfg template
+  template:
+    src: roles/s3/templates/s3cfg.j2
+    dest: /home/backups/.s3cfg
+    owner: backups
+    group: backups
+    mode: 0600
+
+- name: copy s3_backup_script.sh.j2
+  template:
+    src: roles/s3/templates/s3_backup_script.sh.j2
+    dest: /home/backups/s3_backup_script.sh
+    owner: backups
+    group: backups
+    mode: 0755
+
+- name: copy s3cfg template to root
+  template:
+    src: roles/s3/templates/s3cfg.j2
+    dest: ~/.s3cfg
+    owner: root
+    group: root
+    mode: 0600
+
+- name: copy vars file for use with other scripts
+  template:
+    src: roles/s3/templates/vars.sh.j2
+    dest: ~/vars.sh
+    owner: root
+    group: root
+    mode: 0755
+
+- name: copy vars script to backups
+  template:
+    src: roles/s3/templates/vars.sh.j2
+    dest: /home/backups/vars.sh
+    owner: backups
+    group: backups
+    mode: 0755
+
+- name: copy retrieve bucket script
+  template:
+    src: roles/s3/templates/retrieve_bucket.sh.j2
+    dest: ~/retrieve_bucket.sh
+    owner: root
+    group: root
+    mode: 0755

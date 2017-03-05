@@ -1,0 +1,6 @@
+---
+- file:
+    path: /var/www/{{ website_name }}/public_html/wp-content/uploads/
+    owner: apache
+    group: root
+    recurse: yes

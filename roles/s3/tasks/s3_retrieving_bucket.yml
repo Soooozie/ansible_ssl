@@ -1,0 +1,7 @@
+---
+- stat: path=/var/www/{{ website_name }}
+  register: st
+
+- name: s3 retrieve bucket
+  command: sh ~/retrieve_bucket.sh
+  when: not st.stat.exists

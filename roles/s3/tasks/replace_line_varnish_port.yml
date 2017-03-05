@@ -1,0 +1,5 @@
+---
+- replace:
+    dest: /etc/varnish/varnish.params
+    regexp: "VARNISH_LISTEN_PORT={{ varnish_port }}"
+    replace: 'VARNISH_LISTEN_PORT=80'
