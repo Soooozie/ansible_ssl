@@ -1,0 +1,53 @@
+---
+- name: launch a dreamcompute instance
+  hosts: localhost
+  tasks:
+
+    - include_vars: vars.yml
+    - name: launch instance
+      register: baseImage3
+      os_server:
+        state: present
+        name: base-image3
+        image: f84868a5-5261-404a-9c54-ec317ea16b94
+        key_name: "{{ key_name }}"
+        timeout: 200
+        flavor: gp1.subsonic
+        meta:
+          hostname: base-image3
+          group: uge-master
+
+    - add_host:
+        name: base-image3
+        groups: base-image3
+        ansible_host: "{{baseImage3.server.public_v4}}"
+        ansible_user: centos
+        ansible_become: true
+
+    - cloudflare_dns:
+        zone: "{{ website }}"
+        record: "{{ record_name }}"
+        type: A
+        value: "{{baseImage3.server.public_v4}}"
+        state: present
+        solo: true
+        account_email: "{{ email }}"
+        account_api_token: "{{ cloudflare_api }}"
+      register: record
+
+    - name: wait for ssh
+      local_action: wait_for
+        port=22
+        host="{{baseImage3.server.public_v4}}"
+        delay=10
+
+    - pause:
+       seconds: 20
+
+- hosts: base-image3
+  become_user: root
+  roles:
+    - lampserver
+    - varnish
+    - s3
+    - ssl_restore
