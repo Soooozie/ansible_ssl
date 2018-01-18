@@ -9,7 +9,7 @@
       os_server:
         state: present
         name: base-image3
-        image: f84868a5-5261-404a-9c54-ec317ea16b94
+        image: c922a7d0-cac5-4913-9b73-1ef84ae7ab2b
         key_name: "{{ key_name }}"
         timeout: 200
         flavor: gp1.subsonic
