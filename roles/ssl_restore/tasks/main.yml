@@ -1,7 +1,7 @@
 ---
-- include: nginx.yml
-- include: certbot.yml
-- include: ssl_cert_gen.yml
-- include: semanage_ports.yml
-- include: varnish_port_nginx.yml
-- include: move_nginx_files.yml 
+- import_tasks: nginx.yml
+- import_tasks: certbot.yml
+- import_tasks: ssl_cert_gen.yml
+- import_tasks: semanage_ports.yml
+- import_tasks: varnish_port_nginx.yml
+- import_tasks: move_nginx_files.yml 

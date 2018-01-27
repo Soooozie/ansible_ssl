@@ -2,7 +2,7 @@
 
 source ~/vars.sh
 
-s3cmd get $BUCKET_NAME/*.tar
+s3cmd get $BUCKET_NAME/{{ object_name }}
 
 tar xf *.tar
 

@@ -1,7 +1,7 @@
 ---
-- include: lamp_packages.yml
-- include: generate_rand_pass_mysql_users.yml
-- include: mysql_secure_installation.yml
-- include: wp_cli_installation.yml
-- include: create_user.yml
-- include: wordpress_mysql_db.yml 
+- import_tasks: lamp_packages.yml
+- import_tasks: generate_rand_pass_mysql_users.yml
+- import_tasks: mysql_secure_installation.yml
+- import_tasks: wp_cli_installation.yml
+- import_tasks: create_user.yml
+- import_tasks: wordpress_mysql_db.yml 

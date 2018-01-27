@@ -1,2 +1,2 @@
 ---
-- include: install_varnish.yml
+- import_tasks: install_varnish.yml
