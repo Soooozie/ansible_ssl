@@ -1,0 +1,8 @@
+vars.yml
+.DS_Store
+roles/lampserver/vars
+roles/s3/vars
+roles/ssl_restore/vars
+roles/varnish/vars
+roles/s3/templates/vars.sh.j2
+hosts
