@@ -1,0 +1,10 @@
+---
+- name: wordpress update
+  command: /usr/local/bin/wp core update
+  args:
+    chdir: "{{ docroot }}"
+
+- name: plugin updates
+  command: /usr/local/bin/wp plugin update --all
+  args:
+    chdir: "{{ docroot }}"

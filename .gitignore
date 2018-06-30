@@ -6,3 +6,4 @@ roles/ssl_restore/vars
 roles/varnish/vars
 roles/s3/templates/vars.sh.j2
 hosts
+roles/post_restore_tasks/vars
