@@ -9,7 +9,7 @@
       os_server:
         state: present
         name: base-image3
-        image: c922a7d0-cac5-4913-9b73-1ef84ae7ab2b
+        image: 7b055337-0e66-480d-be3d-4217abd2ec2c
         key_name: "{{ key_name }}"
         timeout: 200
         flavor: gp1.subsonic
@@ -51,3 +51,4 @@
     - varnish
     - s3
     - ssl_restore
+    - post_restore_tasks

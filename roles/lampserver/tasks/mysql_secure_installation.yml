@@ -10,6 +10,12 @@
 - name: Delete root user with ansible hostname
   action: mysql_user user="root" host="{{ ansible_hostname }}" state="absent"
 
+- name: Delete those pesky novalocal host users
+  action: mysql_user user="root" host="{{ novalocal_host }}" state="absent"
+
+- name: Delete those pesky novalocal host users anonymous
+  action: mysql_user user="" host="{{ novalocal_host }}" state="absent"
+
 - name: Remove test database
   action: mysql_db db=test state=absent
 
