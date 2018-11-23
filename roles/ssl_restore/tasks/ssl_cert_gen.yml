@@ -1,5 +1,5 @@
 ---
-- stat: path=/etc/letsencrypt
+- stat: path=/etc/letsencrypt/keys/
   register: letsencrypt
 
 - name: generate certificate
