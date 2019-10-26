@@ -8,3 +8,4 @@
   command: /usr/local/bin/wp plugin update --all
   args:
     chdir: "{{ docroot }}"
+  ignore_errors: yes

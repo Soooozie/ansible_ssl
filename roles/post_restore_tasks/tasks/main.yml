@@ -1,3 +1,4 @@
 ---
+- include_tasks: upgrade_php.yml
 - include_tasks: wp_updates.yml
 - include_tasks: yum_updates.yml
